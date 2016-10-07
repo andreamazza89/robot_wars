@@ -1,0 +1,26 @@
+{
+  "name": "robot_wars",
+  "version": "1.0.0",
+  "description": "draw metal blood",
+  "main": "server.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andreamazza89/robot_wars.git"
+  },
+  "keywords": [
+    "robots",
+    "game"
+  ],
+  "author": "Andrea Mazzarella, Crescenzo Alterio",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/andreamazza89/robot_wars/issues"
+  },
+  "homepage": "https://github.com/andreamazza89/robot_wars#readme"
+}
