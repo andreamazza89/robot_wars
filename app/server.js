@@ -9,7 +9,7 @@ app.get('/', function (req, res) {
 });
 
 io.on('connection', function (socket) {
-socket.broadcast.emit('news', 'someone else is here');
+  socket.broadcast.emit('news', 'someone else is here');
   socket.emit('news', { hello: 'world' });
   socket.on('my other event', function (data) {
     console.log(data);
