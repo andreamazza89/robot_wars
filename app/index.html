@@ -1,8 +1,16 @@
-<script src="/socket.io/socket.io.js"></script>
-<script>
-  var socket = io();
-  socket.on('news', function (data) {
-    console.log(data);
-    socket.emit('my other event', { yo: 'I just connected' });
-  });
-</script>
+<!DOCTYPE html>
+<html>
+  <body>
+    <h1>Ciao</h1>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+      var AAAAAAAA = '============================'
+      var test = '============================'
+      var socket = io();
+      socket.on('news', function (data) {
+        console.log(data);
+        socket.emit('my other event', { yo: 'I just connected' });
+      });
+    </script>
+  </body>
+</html>
