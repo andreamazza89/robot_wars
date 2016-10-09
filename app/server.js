@@ -1,17 +1,42 @@
-var app  = require('express')();
+var express = require('express');
+var app  = express(); 
 var http = require('http').Server(app);
 var io   = require('socket.io')(http);
 
-http.listen(3000);
+app.use(express.static('public'));
 
 app.get('/', function (req, res) {
   res.sendFile(__dirname + '/index.html');
 });
 
+var players = {}
+
 io.on('connection', function (socket) {
-  socket.broadcast.emit('news', 'someone else is here');
-  socket.emit('news', { hello: 'world' });
-  socket.on('my other event', function (data) {
-    console.log(data);
-  });
+
+  players[socket.id] =  { x: 100, y: 100 }
+  io.emit('players locations update', players)
+
+  socket.on('player moves', function(data) {
+    if(data.direction === 'R') { 
+      currentPosition = players[socket.id]
+      players[socket.id] = { x: currentPosition.x + 5 , y: currentPosition.y }
+    } else if(data.direction === 'L') { 
+      currentPosition = players[socket.id]
+      players[socket.id] = { x: currentPosition.x - 5 , y: currentPosition.y }
+    } else if(data.direction === 'D') { 
+      currentPosition = players[socket.id]
+      players[socket.id] = { x: currentPosition.x , y: currentPosition.y + 5 }
+    } else if(data.direction === 'U') { 
+      currentPosition = players[socket.id]
+      players[socket.id] = { x: currentPosition.x , y: currentPosition.y - 5 }
+    }
+
+    io.emit('players locations update', players)
+  })
+
+  socket.on('disconnect', function() {
+  })
 });
+
+http.listen(3000);
+console.log('listening on port 3000');

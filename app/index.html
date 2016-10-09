@@ -1,8 +1,4 @@
 <script src="/socket.io/socket.io.js"></script>
-<script>
-  var socket = io();
-  socket.on('news', function (data) {
-    console.log(data);
-    socket.emit('my other event', { yo: 'I just connected' });
-  });
-</script>
+<canvas id="myCanvas" width="600" height="600" style="border:1px solid #000000;">
+</canvas>
+<script src="/index.js"></script>
