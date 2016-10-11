@@ -28,7 +28,7 @@ function drawPlayers() {
 
 function drawRectangle(coordinates) {
   ctx.beginPath();
-  ctx.rect(coordinates.x, coordinates.y ,100,100)
+  ctx.rect(coordinates.x, coordinates.y ,20,20)
   ctx.fillStyle = thisColour;
   ctx.fill();
   ctx.closePath();
@@ -40,6 +40,12 @@ function keyDownHandler(e) {
       socket.emit('player moves', {direction: 'U'})
       break;
     case 39:
+
+
+var a = new Date
+console.log(a.getSeconds(), a.getMilliseconds() )
+
+
       socket.emit('player moves', {direction: 'R'})
       break;
     case 40:

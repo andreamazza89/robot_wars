@@ -19,16 +19,16 @@ io.on('connection', function (socket) {
   socket.on('player moves', function(data) {
     if(data.direction === 'R') { 
       currentPosition = players[socket.id]
-      players[socket.id] = { x: currentPosition.x + 5 , y: currentPosition.y }
+      players[socket.id] = { x: currentPosition.x + 4 , y: currentPosition.y }
     } else if(data.direction === 'L') { 
       currentPosition = players[socket.id]
-      players[socket.id] = { x: currentPosition.x - 5 , y: currentPosition.y }
+      players[socket.id] = { x: currentPosition.x - 4 , y: currentPosition.y }
     } else if(data.direction === 'D') { 
       currentPosition = players[socket.id]
-      players[socket.id] = { x: currentPosition.x , y: currentPosition.y + 5 }
+      players[socket.id] = { x: currentPosition.x , y: currentPosition.y + 4 }
     } else if(data.direction === 'U') { 
       currentPosition = players[socket.id]
-      players[socket.id] = { x: currentPosition.x , y: currentPosition.y - 5 }
+      players[socket.id] = { x: currentPosition.x , y: currentPosition.y - 4 }
     }
 
     io.emit('players locations update', players)
